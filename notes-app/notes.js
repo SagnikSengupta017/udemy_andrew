@@ -22,10 +22,10 @@ const addNote=function(title,body)
         body:body
     })
     saveNotes(notes)
-    console.log('New Note added')
+    console.log(chalk.green('New Note added'))
    }
    else{
-    console.log('Note already exists')
+    console.log(chalk.red('Note already exists'))
    }
    
    //console.log(notes)
