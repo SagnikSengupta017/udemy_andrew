@@ -25,7 +25,7 @@ const addNote=function(title,body)
     console.log(chalk.green.inverse('New Note added'))
    }
    else{
-    console.log(chalk.red('Note already exists'))
+    console.log(chalk.red.inverse('Note already exists'))
    }
    
    //console.log(notes)
