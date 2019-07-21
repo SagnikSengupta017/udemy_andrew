@@ -7,7 +7,9 @@
 //const validator=require('validator')
 const chalk=require('chalk')
 const yargs=require('yargs')
-const getNotes=require('./notes.js')
+const notes_utility=require('./notes.js')
+// now notes_utility is an object with 2 properties and both these properties get value from the functions
+// notes_utility is the object which it gets from note.js and it has many properties and can access getNotes_1,addNotes_1 and so on
 //const msg=getNotes()
 //console.log(msg)
 
@@ -49,17 +51,23 @@ yargs.command({
     },
     handler: function(argv){
         //console.log('Add a note !!',argv.title,argv.body)
-        console.log('Title: ',argv.title)
-        console.log('Body: ',argv.body)
+        notes_utility.addNote_1(argv.title,argv.body)
     }
 })
 // remove a note
 yargs.command({
     command:'remove',
     describe:'Remove a note',
-    handler:function()
+    builder:{
+        title:{
+            describe:'note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler:function(argv)
     {
-        console.log('Remove a note !!')
+        notes_utility.removeNote_1(argv.title)
     }
 })
 yargs.command({
