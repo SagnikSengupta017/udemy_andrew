@@ -1,5 +1,5 @@
 const fs=require('fs')
-
+const chalk=require('chalk')
 
 
 const getNotes=function()
@@ -39,7 +39,7 @@ const removeNote=function(title)
 
    if(duplicate_notes.length === 0)
    {
-    console.log("Title of any note doesnot match, so noting to be removed !!")
+    console.log(chalk.red.inverse("Title of any note doesnot match, so noting to be removed !!"))
    }
     
     else
@@ -49,7 +49,7 @@ const removeNote=function(title)
             return title!=note.title
         })
         saveNotes(removeNotes)
-        console.log("Note deleted")
+        console.log(chalk.green.inverse("Note deleted"))
     }
         
 
